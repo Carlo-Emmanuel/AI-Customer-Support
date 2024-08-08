@@ -94,8 +94,8 @@ export async function POST(req){
                     }
                 }
             }
-            catch(error){
-                controller.error(error)
+            catch(err){
+                controller.error(err)
             }
             finally{    //close the stream when done
                 controller.close()
