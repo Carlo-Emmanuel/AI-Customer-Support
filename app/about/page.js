@@ -1,20 +1,12 @@
 "use client";
 
-import Layout from ".//components/SidebarLayout";
-import {
-  Box,
-  Button,
-  Typography,
-  Stack,
-  TextField,
-  Divider
-} from "@mui/material";
+import Layout from "../components/SidebarLayout";
+
+import { Box, Typography, Divider, Stack } from "@mui/material";
+
 import { useState } from "react";
-import ReactMarkdown from "react-markdown";
-// import App from "next/app";
 
-export default function HeadstarterAI() {
-
+export default function AboutPage() {
   return (
     <Layout>
       <Box
@@ -25,8 +17,8 @@ export default function HeadstarterAI() {
         gap={3}
       >
         <Stack direction="column" spacing={2}>
-          <Typography variant="h2" justifyContent={"center"} display={"flex"}>
-            Welcome!
+          <Typography variant="h4" justifyContent={"center"} display={"flex"}>
+            About Headstarter
           </Typography>
           <Divider />
           <Typography variant="h5" gutterBottom>
