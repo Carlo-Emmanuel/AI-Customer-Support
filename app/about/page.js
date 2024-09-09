@@ -18,21 +18,15 @@ export default function AboutPage() {
       >
         <Stack direction="column" spacing={2}>
           <Typography variant="h4" justifyContent={"center"} display={"flex"}>
-            About Headstarter
+            About MentorMate
           </Typography>
           <Divider />
           <Typography variant="h5" gutterBottom>
-            We are a team of developers and designers working on the next big
-            thing.
+            MentorMate is a platform that provides AI support for College Students!
           </Typography>
           <Divider />
           <Typography variant="h5" gutterBottom>
             Our mission is to help you build your dreams.
-          </Typography>
-          <Divider />
-          <Typography variant="h5" gutterBottom>
-            Learn more about us at our website:{" "}
-            <a href="https://headstarter.ai">Headstarter AI</a>
           </Typography>
         </Stack>
       </Box>

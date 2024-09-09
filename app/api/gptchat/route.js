@@ -81,6 +81,7 @@ export async function POST(req){
         model: 'gpt-4o-mini',
         stream: true,
     })
+    console.log(completion)
 
     const stream = new ReadableStream({ //streaming the response
         async start(controller){

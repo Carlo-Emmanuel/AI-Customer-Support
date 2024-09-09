@@ -1,62 +1,62 @@
-"use client";
+'use client';
 
 import Layout from "../components/SidebarLayout";
 import { Box, Button, Typography, Stack, TextField } from "@mui/material";
 import { useState } from "react";
 import ReactMarkdown from "react-markdown";
-// import App from "next/app";
 
-export default function HeadstarterAI() {
-  const [messages, setMessages] = useState([
-    {
-      role: "assistant",
-      content: `Hi! I am the Headstarter Support Agent. How may I assist you today?`,
-    },
-  ]);
-  const [message, setMessage] = useState("");
-
-  const sendMessage = async () => {
-    setMessage(""); // resets the message textfield
-    setMessages((messages) => [
-      ...messages,
-      { role: "user", content: message },
-      { role: "assistant", content: "" },
+export default function CareerCoach() {
+    const [messages, setMessages] = useState([
+        {
+            role: "assistant",
+            content: `Hi! I am the Career Coach Support Agent. How may I assist you today?`,
+        },
     ]);
-    const response = fetch("api/gptchat", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify([...messages, { role: "user", content: message }]),
+
+    const [message, setMessage] = useState("");
+
+    const sendMessage = async () => {
+        setMessage(""); // resets the message textfield
+        setMessages((messages) => [
+            ...messages,
+            { role: "user", content: message },
+            { role: "assistant", content: "" },
+          ]);
+
+    const response = fetch("api/geminichat", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify([...messages, { role: "user", content: message }]),
     }).then(async (res) => {
-      const reader = res.body.getReader();
-      const decoder = new TextDecoder();
-
-      let result = "";
-      return reader.read().then(function processText({ done, value }) {
-        // read the stream
-        if (done) {
-          return result;
-        }
-        const text = decoder.decode(value || new Int8Array(), { stream: true });
-        setMessages((messages) => {
-          let lastMessage = messages[messages.length - 1];
-          let otherMessages = messages.slice(0, messages.length - 1);
-          return [
-            ...otherMessages,
-            {
-              ...lastMessage,
-              content: lastMessage.content + text,
-            },
-          ];
+        const reader = res.body.getReader();
+        const decoder = new TextDecoder();
+    
+        let result = "";
+        return reader.read().then(function processText({ done, value }) {
+          // read the stream
+          if (done) {
+            return result;
+          }
+          const text = decoder.decode(value || new Int8Array(), { stream: true });
+          setMessages((messages) => {
+            let lastMessage = messages[messages.length - 1];
+            let otherMessages = messages.slice(0, messages.length - 1);
+            return [
+              ...otherMessages,
+              {
+                ...lastMessage,
+                content: lastMessage.content + text,
+              },
+            ];
+          });
+          return reader.read().then(processText);
         });
-        return reader.read().then(processText);
-      });
-    });
-  };
-
-  return (
-    <Layout>
+      })
+    }
+    return (
+        <Layout>
       <Box>
         <Typography variant="h4" justifyContent={"center"} display={"flex"}>
           Headstarter AI Support
@@ -125,5 +125,6 @@ export default function HeadstarterAI() {
         </Stack>
       </Box>
     </Layout>
-  );
+
+    )
 }

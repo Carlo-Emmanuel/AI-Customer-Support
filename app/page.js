@@ -35,11 +35,7 @@ export default function HeadstarterAI() {
           </Typography>
           <Divider />
           <Typography variant="h5" gutterBottom>
-            Our mission is to help you build your dreams.
-          </Typography>
-          <Divider />
-          <Typography variant="h5" gutterBottom>
-            Learn more about us at our website:{" "}
+            Learn more about Headstarter:{" "}
             <a href="https://headstarter.ai">Headstarter AI</a>
           </Typography>
         </Stack>

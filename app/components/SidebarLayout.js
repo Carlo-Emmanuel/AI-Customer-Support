@@ -27,7 +27,7 @@ export default function Layout({ children }) {
     About: "/about",
     // Contact: "/contact",
     HeadstarterAI: "/gpt-headstarter-ai",
-    // CareerCoach: "/bard-coach",
+    CareerCoach: "/gemini-career-coach",
     // ResumeReview: "/anthropic-review",
   };
 
@@ -97,13 +97,21 @@ export default function Layout({ children }) {
                   <ListItemText primary='About' />
                 </ListItemButton>
               </ListItem>
+              <Divider />
+              <Typography variant="h6" noWrap component="div" p={2}>
+                AI Support
+              </Typography>
               <ListItem disablePadding>
                 <ListItemButton onClick={() => handleNavigation('HeadstarterAI')}>
                   <ListItemText primary='Headstarter AI' />
                 </ListItemButton>
               </ListItem>
+              <ListItem disablePadding>
+                <ListItemButton onClick={() => handleNavigation('CareerCoach')}>
+                  <ListItemText primary='Career Coach' />
+                </ListItemButton>
+              </ListItem>
             </List>
-            <Divider />
             {/* <List>
               {gptList.map((text, index) => (
                 <ListItem key={text} disablePadding>
